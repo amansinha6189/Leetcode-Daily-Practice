@@ -3,7 +3,10 @@ public:
     string simplifyPath(string path) {
         stack<string> st;
         string temp = "";
+        
+        // here I am adiing "/" just to be sure that I do miss the last folder or any .. operator .
         path += "/";
+        
         for(char ch: path){
             if(ch == '/'){
                 if(temp == ".."){
@@ -11,7 +14,7 @@ public:
                         st.pop();
                     }
                 }else if(temp != "" and temp != "."){
-                    // if temp is neither empty nor . ---> we can not ignore this. temp is some file here.
+                    // if temp is neither empty nor . ---> we can not ignore this. temp is some folder here.
                     st.push(temp);
                 }
                 temp = "";
