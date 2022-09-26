@@ -14,7 +14,7 @@ public:
         if(open > close){
             temp += ')';
             solve(N, ans, open, close+1, temp);
-            return;
+            temp.pop_back();
         }
     }
     vector<string> generateParenthesis(int n) {
