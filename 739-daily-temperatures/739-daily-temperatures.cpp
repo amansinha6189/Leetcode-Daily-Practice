@@ -7,12 +7,12 @@ public:
         
         for(int i = 0; i<N; i++){
             while(!st.empty() and temperatures[i] > st.top().first){
-                int reqIndex = st.top().second;
+                int stackIndex = st.top().second;
                 int temp = st.top().first;
                 
                 st.pop();
                 
-                ans[reqIndex] = i - reqIndex;
+                ans[stackIndex] = i - stackIndex;
             }
             st.push({temperatures[i],i});
         }
